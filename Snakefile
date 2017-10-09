@@ -7,5 +7,10 @@ rule raw_data:
 
 rule regrid_data:
     input: rules.raw_data.output
-    output: "data/processed/rayben/regridded.nc"
+    output: "data/processed/regridded.nc"
     script: "snakemake/regrid.py"
+
+rule stats:
+    input: rules.regrid_data.output
+    output: mu="data/stats/mu.nc", sig="data/stats/sig.nc"
+    script: "snakemake/stats.py"
