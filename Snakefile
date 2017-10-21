@@ -8,9 +8,14 @@ rule raw_data:
 rule regrid_data:
     input: rules.raw_data.output
     output: "data/processed/regridded.nc"
-    script: "snakemake/regrid.py"
+    script: "scripts/regrid.py"
 
 rule stats:
     input: rules.regrid_data.output
     output: mu="data/stats/mu.nc", sig="data/stats/sig.nc"
-    script: "snakemake/stats.py"
+    script: "scripts/stats.py"
+
+rule bin:
+    input: "data/raw/rayben/10ksamples.nc"
+    output: "data/processed/binned.nc"
+    script: "scripts/bin_isothermal.py"

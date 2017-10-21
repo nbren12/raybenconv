@@ -208,3 +208,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+/scripts/.snakemake.piks80m4.bin_isothermal.py

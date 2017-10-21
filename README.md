@@ -27,3 +27,6 @@ Project Organization
         ├── models
         ├── tools
         └── visualization
+
+
+scripts contains scripts to be called by snakemake
